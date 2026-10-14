@@ -1641,61 +1641,29 @@
            CONTACT
         ========================================================= */
 
-       <section id="contact" class="section">
-    <div class="section-title reveal">
-        <span>08</span>
-        <h2>Let's Connect</h2>
-        <p>Have a project, opportunity, or idea? Let's talk.</p>
-    </div>
-
-    <div class="contact-grid">
-
-        <!-- EMAIL -->
-        <a href="mailto:shivashakthimanivannan@gmail.com"
-           class="contact-card reveal">
-            <div class="contact-icon">✉</div>
-            <div>
-                <h3>Email</h3>
-                <p>shivashakthimanivannan@gmail.com</p>
-            </div>
-        </a>
-
-        <!-- PHONE -->
-        <a href="tel:+919150816142"
-           class="contact-card reveal">
-            <div class="contact-icon">☎</div>
-            <div>
-                <h3>Phone</h3>
-                <p>+91 91508 16142</p>
-            </div>
-        </a>
-
-        <!-- LINKEDIN -->
-        <a href="https://www.linkedin.com/in/shiva-shakthi-manivannan-7620433b9"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="contact-card reveal">
-            <div class="contact-icon">in</div>
-            <div>
-                <h3>LinkedIn</h3>
-                <p>Connect with me</p>
-            </div>
-        </a>
-
-        <!-- GITHUB -->
-        <a href="https://github.com/shivashakthimanivannan-droid"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="contact-card reveal">
-            <div class="contact-icon">⌘</div>
-            <div>
-                <h3>GitHub</h3>
-                <p>View my projects</p>
-            </div>
-        </a>
-
-    </div>
-</section>
+        .contact-box {
+            padding: 65px 50px;
+            text-align: center;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            background: linear-gradient(145deg, rgba(168,85,247,.12), rgba(34,211,238,.04));
+        }
+        .contact-box h2 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(30px, 5vw, 48px);
+            margin: 12px 0 20px;
+        }
+        .contact-box p {
+            color: var(--muted);
+            max-width: 650px;
+            margin: 0 auto 28px;
+        }
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
 
         /* =========================================================
            FOOTER
@@ -2111,11 +2079,11 @@
                         <div class="metric">
 
                             <strong>
-                                93%
+                                RAG
                             </strong>
 
                             <span>
-                                Insight Accuracy
+                                AI Projects
                             </span>
 
                         </div>
@@ -2293,7 +2261,7 @@
             <div class="stat-card reveal">
 
                 <div class="stat-number counter"
-                     data-target="6">
+                     data-target="11">
                     0
                 </div>
 
@@ -2810,7 +2778,48 @@
 
 
             <!-- =================================================
-                 PROJECT 02
+                 PROJECT 02 — PHARMACOVIGILANCE RAG
+            ================================================== -->
+
+            <div class="project-card tilt reveal">
+                <div class="project-image">
+                    <div class="project-number">02</div>
+                    <div class="project-visual">💊</div>
+                </div>
+                <div class="project-content">
+                    <div class="project-category">Generative AI • RAG • Drug Safety</div>
+                    <h3>Pharmacovigilance &amp; ADE RAG System</h3>
+                    <p>
+                        Built a drug-safety research assistant that retrieves PubMed
+                        literature and FDA FAERS reports, reranks evidence, detects
+                        adverse-event associations, and uses Gemini for citation-validated
+                        analysis with a claim-level grounding audit. Research prototype;
+                        not for clinical decision-making.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">RAG</span>
+                        <span class="tag">Gemini</span>
+                        <span class="tag">PubMed</span>
+                        <span class="tag">FDA FAERS</span>
+                        <span class="tag">Cross-Encoder</span>
+                        <span class="tag">Streamlit</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/shivashakthimanivannan-droid/Pharmacovigilance-ADE-RAG"
+                           class="project-link" target="_blank" rel="noopener noreferrer">
+                            View Project →
+                        </a>
+                        <a href="https://github.com/shivashakthimanivannan-droid/Pharmacovigilance-ADE-RAG"
+                           class="project-link" target="_blank" rel="noopener noreferrer">
+                            GitHub ↗
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- =================================================
+                 PROJECT 03
             ================================================== -->
 
             <div class="project-card tilt reveal">
@@ -2818,7 +2827,7 @@
                 <div class="project-image">
 
                     <div class="project-number">
-                        02
+                        03
                     </div>
 
                     <div class="project-visual">
@@ -2881,7 +2890,7 @@
 
 
             <!-- =================================================
-                 PROJECT 03
+                 PROJECT 04
             ================================================== -->
 
             <div class="project-card tilt reveal">
@@ -2889,7 +2898,7 @@
                 <div class="project-image">
 
                     <div class="project-number">
-                        03
+                        04
                     </div>
 
                     <div class="project-visual">
@@ -2951,7 +2960,7 @@
 
 
             <!-- =================================================
-                 PROJECT 04
+                 PROJECT 05
             ================================================== -->
 
             <div class="project-card tilt reveal">
@@ -2959,7 +2968,7 @@
                 <div class="project-image">
 
                     <div class="project-number">
-                        04
+                        05
                     </div>
 
                     <div class="project-visual">
@@ -3020,7 +3029,7 @@
 
 
             <!-- =================================================
-                 PROJECT 05
+                 PROJECT 06
             ================================================== -->
 
             <div class="project-card tilt reveal">
@@ -3028,7 +3037,7 @@
                 <div class="project-image">
 
                     <div class="project-number">
-                        05
+                        06
                     </div>
 
                     <div class="project-visual">
@@ -3089,7 +3098,7 @@
 
 
             <!-- =================================================
-                 PROJECT 06
+                 PROJECT 07
             ================================================== -->
 
             <div class="project-card tilt reveal">
@@ -3097,7 +3106,7 @@
                 <div class="project-image">
 
                     <div class="project-number">
-                        06
+                        07
                     </div>
 
                     <div class="project-visual">
@@ -3159,7 +3168,7 @@
 
 
             <!-- =================================================
-                 PROJECT 07
+                 PROJECT 08
             ================================================== -->
 
             <div class="project-card tilt reveal">
@@ -3167,7 +3176,7 @@
                 <div class="project-image">
 
                     <div class="project-number">
-                        07
+                        08
                     </div>
 
                     <div class="project-visual">
@@ -3227,7 +3236,7 @@
 
 
             <!-- =================================================
-                 PROJECT 08
+                 PROJECT 09
             ================================================== -->
 
             <div class="project-card tilt reveal">
@@ -3235,7 +3244,7 @@
                 <div class="project-image">
 
                     <div class="project-number">
-                        08
+                        09
                     </div>
 
                     <div class="project-visual">
@@ -3295,7 +3304,7 @@
 
 
             <!-- =================================================
-                 PROJECT 09
+                 PROJECT 10
             ================================================== -->
 
             <div class="project-card tilt reveal">
@@ -3303,7 +3312,7 @@
                 <div class="project-image">
 
                     <div class="project-number">
-                        09
+                        10
                     </div>
 
                     <div class="project-visual">
@@ -3363,7 +3372,7 @@
 
 
             <!-- =================================================
-                 PROJECT 10
+                 PROJECT 11
             ================================================== -->
 
             <div class="project-card tilt reveal">
@@ -3371,7 +3380,7 @@
                 <div class="project-image">
 
                     <div class="project-number">
-                        10
+                        11
                     </div>
 
                     <div class="project-visual">
@@ -3626,7 +3635,7 @@
 
                 <!-- CHANGE EMAIL -->
 
-                <a href="mailto:your.email@gmail.com"
+                <a href="mailto:shivashakthimanivannan@gmail.com"
                    class="btn btn-primary magnetic">
                     ✉ Email Me
                 </a>
@@ -3634,7 +3643,7 @@
 
                 <!-- CHANGE LINKEDIN -->
 
-                <a href="https://www.linkedin.com/"
+                <a href="https://www.linkedin.com/in/shiva-shakthi-manivannan-7620433b9"
                    target="_blank"
                    rel="noopener"
                    class="btn btn-outline magnetic">
@@ -3644,7 +3653,7 @@
 
                 <!-- CHANGE GITHUB -->
 
-                <a href="https://github.com/"
+                <a href="https://github.com/shivashakthimanivannan-droid"
                    target="_blank"
                    rel="noopener"
                    class="btn btn-outline magnetic">
