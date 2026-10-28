@@ -3,42 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta
-        name="description"
-        content="Shiva Shakthi Manivannan's portfolio of data analytics, business intelligence, Generative AI and RAG projects."
-    >
-
     <meta name="theme-color" content="#F4EEDD">
+    <meta name="description" content="Shiva Shakthi Manivannan's portfolio of data analytics, business intelligence, Generative AI and RAG projects.">
 
     <title>Shiva Shakthi Manivannan | Data &amp; Generative AI</title>
 
-    <link
-        rel="icon"
-        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='8' fill='%238A9A5B'/%3E%3Ctext x='50' y='64' font-family='Georgia,serif' font-size='39' text-anchor='middle' fill='%23F4EEDD'%3ESM%3C/text%3E%3C/svg%3E"
-    >
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='8' fill='%238A9A5B'/%3E%3Ctext x='50' y='64' font-family='Georgia,serif' font-size='39' text-anchor='middle' fill='%23F4EEDD'%3ESM%3C/text%3E%3C/svg%3E">
 
     <style>
-        /* BRAND COLOURS AND READING SURFACES */
-
         :root {
             --sage: #8A9A5B;
             --walnut: #B28965;
             --amber: #FCCA74;
-
             --paper: #F4EEDD;
             --paper-light: #FAF7EF;
             --ink: #302C23;
             --muted: #645E50;
-
             --line: rgba(48, 44, 35, 0.20);
-            --container: 1180px;
-
             --serif: Georgia, "Times New Roman", serif;
             --sans: Arial, Helvetica, sans-serif;
+            --container: 1180px;
         }
 
-        * {
+        *,
+        *::before,
+        *::after {
             box-sizing: border-box;
         }
 
@@ -55,16 +44,11 @@
             overflow-wrap: break-word;
         }
 
-        h1,
-        h2,
-        h3,
-        p {
+        h1, h2, h3, p {
             margin-top: 0;
         }
 
-        h1,
-        h2,
-        h3 {
+        h1, h2, h3 {
             font-weight: 400;
         }
 
@@ -78,6 +62,7 @@
         }
 
         a:focus-visible,
+        button:focus-visible,
         summary:focus-visible {
             outline: 3px solid var(--ink);
             outline-offset: 5px;
@@ -105,6 +90,10 @@
 
         .skip-link:focus {
             top: 16px;
+        }
+
+        section {
+            padding: 100px 0;
         }
 
         .eyebrow {
@@ -135,10 +124,6 @@
             font-size: 0.96rem;
         }
 
-        section {
-            padding: 100px 0;
-        }
-
         /* HEADER */
 
         .site-header {
@@ -147,6 +132,11 @@
             z-index: 20;
             background: var(--paper);
             border-bottom: 1px solid var(--line);
+            transition: box-shadow 200ms ease;
+        }
+
+        .site-header.scrolled {
+            box-shadow: 0 5px 18px rgba(48, 44, 35, 0.06);
         }
 
         .navigation {
@@ -190,12 +180,28 @@
         }
 
         .nav-links a {
+            position: relative;
+            display: inline-block;
             font-size: 0.82rem;
             text-decoration: none;
         }
 
-        .nav-links a:hover {
-            text-decoration: underline;
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -4px;
+            height: 2px;
+            background: var(--sage);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 200ms ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a[aria-current="location"]::after {
+            transform: scaleX(1);
         }
 
         .header-contact {
@@ -232,7 +238,6 @@
 
         .hero h1 em {
             display: block;
-            color: var(--ink);
             font-weight: 400;
             text-decoration: underline;
             text-decoration-color: var(--walnut);
@@ -265,18 +270,24 @@
             text-transform: uppercase;
         }
 
-        .text-link span[aria-hidden] {
+        .text-link span {
+            display: inline-block;
             font-size: 1.5rem;
             font-weight: 400;
-            line-height: 1;
+            transition: transform 200ms ease;
+        }
+
+        .text-link:hover span {
+            transform: translateX(4px);
         }
 
         .text-link:hover {
             text-decoration: underline;
         }
 
-        /* Architectural shape inspired by the reference.
-           This is a text panel, not a photograph or data chart. */
+        .hero-scene {
+            perspective: 1400px;
+        }
 
         .hero-panel {
             position: relative;
@@ -287,12 +298,14 @@
             padding: 66px 42px 36px;
             border-radius: 250px 250px 4px 4px;
             background: var(--sage);
-            color: var(--ink);
+            transform-style: preserve-3d;
+            transform-origin: center;
         }
 
         .panel-top {
             padding-top: 45px;
             text-align: center;
+            transform: translateZ(22px);
         }
 
         .panel-top .eyebrow {
@@ -309,14 +322,11 @@
             letter-spacing: -0.045em;
         }
 
-        .panel-title em {
-            font-weight: 400;
-        }
-
         .panel-bottom {
             margin-top: 48px;
             padding-top: 22px;
             border-top: 1px solid rgba(48, 44, 35, 0.4);
+            transform: translateZ(12px);
         }
 
         .panel-bottom p {
@@ -340,7 +350,7 @@
             justify-content: space-between;
             flex-wrap: wrap;
             gap: 8px 20px;
-            margin-top: 15px;
+            margin-top: 18px;
             color: var(--muted);
             font-size: 0.68rem;
         }
@@ -348,8 +358,7 @@
         /* ABOUT */
 
         .about-section {
-            border-top: 1px solid var(--line);
-            border-bottom: 1px solid var(--line);
+            border-block: 1px solid var(--line);
             background: var(--paper-light);
         }
 
@@ -374,7 +383,6 @@
 
         .about-copy strong {
             color: var(--ink);
-            font-weight: 600;
         }
 
         /* PROJECTS */
@@ -398,10 +406,17 @@
             gap: 48px 36px;
         }
 
+        .project-shell {
+            min-width: 0;
+            perspective: 1400px;
+        }
+
         .project-card {
             display: flex;
             flex-direction: column;
+            height: 100%;
             min-width: 0;
+            transform-origin: center top;
         }
 
         .project-cover {
@@ -411,7 +426,6 @@
             justify-content: space-between;
             padding: 27px 30px;
             margin-bottom: 23px;
-            color: var(--ink);
         }
 
         .cover-sage {
@@ -492,12 +506,9 @@
             font-size: 0.78rem;
         }
 
-        /* ADDITIONAL PROJECTS */
-
         .additional-projects {
             margin-top: 56px;
-            border-top: 1px solid var(--line);
-            border-bottom: 1px solid var(--line);
+            border-block: 1px solid var(--line);
         }
 
         .additional-projects summary {
@@ -539,8 +550,7 @@
         /* SKILLS */
 
         .skills-section {
-            border-top: 1px solid var(--line);
-            border-bottom: 1px solid var(--line);
+            border-block: 1px solid var(--line);
             background: var(--paper-light);
         }
 
@@ -646,10 +656,6 @@
             letter-spacing: -0.05em;
         }
 
-        .contact-heading em {
-            font-weight: 400;
-        }
-
         .contact-description {
             max-width: 460px;
             margin-bottom: 26px;
@@ -718,6 +724,7 @@
 
         .footer-links {
             display: flex;
+            align-items: center;
             flex-wrap: wrap;
             gap: 20px;
         }
@@ -725,6 +732,44 @@
         .footer-links a {
             color: var(--muted);
             font-size: 0.75rem;
+        }
+
+        .motion-toggle {
+            padding: 6px 9px;
+            border: 1px solid var(--line);
+            border-radius: 3px;
+            background: transparent;
+            color: var(--ink);
+            font: inherit;
+            font-size: 0.75rem;
+            cursor: pointer;
+        }
+
+        .motion-toggle[hidden] {
+            display: none;
+        }
+
+        /* ANIMATION
+           Content is visible by default, including without JavaScript. */
+
+        .reveal.is-pending {
+            opacity: 0;
+            transform: translateY(22px);
+        }
+
+        .reveal.is-entering {
+            animation: reveal-in 650ms cubic-bezier(.22, 1, .36, 1) both;
+        }
+
+        @keyframes reveal-in {
+            from {
+                opacity: 0;
+                transform: translateY(22px);
+            }
+            to {
+                opacity: 1;
+                transform: none;
+            }
         }
 
         /* RESPONSIVE */
@@ -791,8 +836,7 @@
 
             .hero-caption {
                 max-width: 510px;
-                margin-inline: auto;
-                margin-top: 15px;
+                margin: 18px auto 0;
             }
 
             .panel-title {
@@ -881,15 +925,68 @@
                 flex-direction: column;
             }
         }
+
+        /* Reduced motion always takes priority. */
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation: none !important;
+                transition: none !important;
+                scroll-behavior: auto !important;
+            }
+
+            .reveal,
+            .project-card,
+            .hero-panel,
+            .panel-top,
+            .panel-bottom {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+
+        html.motion-off *,
+        html.motion-off *::before,
+        html.motion-off *::after {
+            animation: none !important;
+            transition: none !important;
+        }
+
+        html.motion-off .reveal,
+        html.motion-off .project-card,
+        html.motion-off .hero-panel,
+        html.motion-off .panel-top,
+        html.motion-off .panel-bottom {
+            opacity: 1 !important;
+            transform: none !important;
+        }
+
+        @media print {
+            header {
+                position: static;
+            }
+
+            .reveal,
+            .project-card,
+            .hero-panel {
+                opacity: 1 !important;
+                transform: none !important;
+                animation: none !important;
+            }
+
+            .motion-toggle {
+                display: none !important;
+            }
+        }
     </style>
 </head>
 
 <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
 
-    <!-- HEADER -->
-
-    <header class="site-header">
+    <header class="site-header" id="site-header">
         <nav class="navigation container" aria-label="Main navigation">
             <a class="brand" href="#home">
                 <span class="brand-monogram" aria-hidden="true">SM</span>
@@ -904,22 +1001,16 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
 
-            <a
-                class="header-contact"
-                href="mailto:shivashakthimanivannan@gmail.com"
-            >
+            <a class="header-contact"
+               href="mailto:shivashakthimanivannan@gmail.com">
                 Get in touch
             </a>
         </nav>
     </header>
 
     <main id="main-content">
-
-        <!-- HERO -->
-
         <section class="hero" id="home">
             <div class="container hero-grid">
-
                 <div class="hero-copy">
                     <p class="eyebrow">
                         Data Analytics · Business Intelligence · Generative AI
@@ -947,11 +1038,11 @@
                     </a>
                 </div>
 
-                <div>
-                    <aside class="hero-panel" aria-label="Portfolio focus">
+                <div class="hero-scene">
+                    <aside class="hero-panel" id="hero-panel"
+                           aria-label="Portfolio focus">
                         <div class="panel-top">
                             <p class="eyebrow">My areas of work</p>
-
                             <p class="panel-title">
                                 Analytics.<br>
                                 Retrieval.<br>
@@ -960,10 +1051,7 @@
                         </div>
 
                         <div class="panel-bottom">
-                            <p class="panel-label">
-                                Tools behind the work
-                            </p>
-
+                            <p class="panel-label">Tools behind the work</p>
                             <p>Python · SQL · Power BI</p>
                             <p>Gemini · LangGraph · RAG</p>
                         </div>
@@ -974,38 +1062,32 @@
                         <span>Data &amp; Generative AI Portfolio</span>
                     </div>
                 </div>
-
             </div>
         </section>
 
-        <!-- ABOUT -->
-
         <section class="about-section" id="about">
             <div class="container about-grid">
-                <div>
+                <div class="reveal">
                     <p class="eyebrow">A little about me</p>
-
                     <h2 class="section-heading">
                         An analytical mind.<br>
                         <em>A practical approach.</em>
                     </h2>
                 </div>
 
-                <div class="about-copy">
+                <div class="about-copy reveal">
                     <p>
                         My focus is on <strong>data analytics, business
                         intelligence and Generative AI</strong>. I use
                         Python, SQL and visualization tools to explore
                         datasets and communicate findings.
                     </p>
-
                     <p>
                         My projects include an AI data analyst agent,
                         a drug-safety research assistant using PubMed
                         and FDA FAERS evidence, and dashboards for
                         exploring business data.
                     </p>
-
                     <p>
                         I'm seeking an entry-level opportunity where
                         I can contribute to practical problems and
@@ -1016,159 +1098,140 @@
             </div>
         </section>
 
-        <!-- PROJECTS -->
-
         <section id="projects">
             <div class="container">
-                <div class="section-top">
+                <div class="section-top reveal">
                     <div>
                         <p class="eyebrow">Selected work</p>
                         <h2 class="section-heading">
-                            Projects in<br>
-                            <em>data and AI.</em>
+                            Projects in<br><em>data and AI.</em>
                         </h2>
                     </div>
-
                     <p class="section-description">
                         A selection of my work in analytics,
-                        business intelligence, AI agents
-                        and retrieval-augmented generation.
+                        business intelligence, AI agents and
+                        retrieval-augmented generation.
                     </p>
                 </div>
 
                 <div class="projects-grid">
+                    <div class="project-shell">
+                        <article class="project-card">
+                            <div class="project-cover cover-sage" aria-hidden="true">
+                                <p class="cover-label">Research &amp; Retrieval</p>
+                                <p class="cover-title">
+                                    Drug-safety<br><em>research.</em>
+                                </p>
+                            </div>
+                            <p class="project-category">
+                                Generative AI · RAG · Drug Safety
+                            </p>
+                            <h3>Pharmacovigilance &amp; ADE RAG System</h3>
+                            <p class="project-description">
+                                A research assistant that retrieves PubMed
+                                literature and FDA FAERS reports, reranks
+                                evidence and uses Gemini to generate
+                                responses grounded in retrieved sources.
+                            </p>
+                            <p class="project-note">
+                                Research prototype. Not intended for
+                                clinical decision-making.
+                            </p>
+                            <p class="project-tools">
+                                Python · Gemini · Weaviate · SentenceTransformers
+                                · Cross-Encoder · PubMed · FDA FAERS
+                            </p>
+                            <a class="project-link"
+                               href="https://github.com/shivashakthimanivannan-droid/Pharmacovigilance-ADE-RAG"
+                               target="_blank" rel="noopener noreferrer">
+                                View repository
+                            </a>
+                        </article>
+                    </div>
 
-                    <article class="project-card">
-                        <div class="project-cover cover-sage" aria-hidden="true">
-                            <p class="cover-label">Research &amp; Retrieval</p>
-                            <p class="cover-title">Drug-safety<br><em>research.</em></p>
-                        </div>
+                    <div class="project-shell">
+                        <article class="project-card">
+                            <div class="project-cover cover-walnut" aria-hidden="true">
+                                <p class="cover-label">Tools &amp; Analysis</p>
+                                <p class="cover-title">
+                                    Questions into<br><em>analysis.</em>
+                                </p>
+                            </div>
+                            <p class="project-category">AI Agent · Data Analytics</p>
+                            <h3>AI Data Analyst Agent</h3>
+                            <p class="project-description">
+                                An agent that answers questions about datasets
+                                using analysis tools for summaries, totals,
+                                grouped analysis and business metrics,
+                                including sales, profit and quantity.
+                            </p>
+                            <p class="project-tools">
+                                Python · Pandas · Gemini · LangGraph · Tool Calling
+                            </p>
+                            <a class="project-link"
+                               href="https://github.com/shivashakthimanivannan-droid/AI_Data_Analyst_Agent"
+                               target="_blank" rel="noopener noreferrer">
+                                View repository
+                            </a>
+                        </article>
+                    </div>
 
-                        <p class="project-category">
-                            Generative AI · RAG · Drug Safety
-                        </p>
+                    <div class="project-shell">
+                        <article class="project-card">
+                            <div class="project-cover cover-amber" aria-hidden="true">
+                                <p class="cover-label">Customers &amp; Retention</p>
+                                <p class="cover-title">
+                                    Understanding<br><em>customer churn.</em>
+                                </p>
+                            </div>
+                            <p class="project-category">
+                                Machine Learning · Business Intelligence
+                            </p>
+                            <h3>AI-Augmented Customer Churn Prediction Dashboard</h3>
+                            <p class="project-description">
+                                A customer analytics project combining churn
+                                prediction and dashboard visualizations
+                                to explore customer retention patterns.
+                            </p>
+                            <p class="project-tools">
+                                Python · Pandas · Scikit-learn · Power BI
+                            </p>
+                        </article>
+                    </div>
 
-                        <h3>Pharmacovigilance &amp; ADE RAG System</h3>
-
-                        <p class="project-description">
-                            A research assistant that retrieves PubMed
-                            literature and FDA FAERS reports, reranks
-                            evidence and uses Gemini to generate
-                            responses grounded in retrieved sources.
-                        </p>
-
-                        <p class="project-note">
-                            Research prototype. Not intended for clinical
-                            decision-making.
-                        </p>
-
-                        <p class="project-tools">
-                            Python · Gemini · Weaviate · SentenceTransformers
-                            · Cross-Encoder · PubMed · FDA FAERS
-                        </p>
-
-                        <a
-                            class="project-link"
-                            href="https://github.com/shivashakthimanivannan-droid/Pharmacovigilance-ADE-RAG"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            View repository
-                        </a>
-                    </article>
-
-                    <article class="project-card">
-                        <div class="project-cover cover-walnut" aria-hidden="true">
-                            <p class="cover-label">Tools &amp; Analysis</p>
-                            <p class="cover-title">Questions into<br><em>analysis.</em></p>
-                        </div>
-
-                        <p class="project-category">
-                            AI Agent · Data Analytics
-                        </p>
-
-                        <h3>AI Data Analyst Agent</h3>
-
-                        <p class="project-description">
-                            An agent that answers questions about datasets
-                            using analysis tools for summaries, totals,
-                            grouped analysis and business metrics,
-                            including sales, profit and quantity.
-                        </p>
-
-                        <p class="project-tools">
-                            Python · Pandas · Gemini · LangGraph · Tool Calling
-                        </p>
-
-                        <a
-                            class="project-link"
-                            href="https://github.com/shivashakthimanivannan-droid/AI_Data_Analyst_Agent"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            View repository
-                        </a>
-                    </article>
-
-                    <article class="project-card">
-                        <div class="project-cover cover-amber" aria-hidden="true">
-                            <p class="cover-label">Customers &amp; Retention</p>
-                            <p class="cover-title">Understanding<br><em>customer churn.</em></p>
-                        </div>
-
-                        <p class="project-category">
-                            Machine Learning · Business Intelligence
-                        </p>
-
-                        <h3>AI-Augmented Customer Churn Prediction Dashboard</h3>
-
-                        <p class="project-description">
-                            A customer analytics project combining
-                            churn prediction and dashboard visualizations
-                            to explore customer retention patterns.
-                        </p>
-
-                        <p class="project-tools">
-                            Python · Pandas · Scikit-learn · Power BI
-                        </p>
-                    </article>
-
-                    <article class="project-card">
-                        <div class="project-cover cover-paper" aria-hidden="true">
-                            <p class="cover-label">Knowledge &amp; Retrieval</p>
-                            <p class="cover-title">Answers from<br><em>your documents.</em></p>
-                        </div>
-
-                        <p class="project-category">
-                            Generative AI · Knowledge Retrieval
-                        </p>
-
-                        <h3>RAG-Based Knowledge Assistant</h3>
-
-                        <p class="project-description">
-                            An assistant that retrieves relevant
-                            information from a local text knowledge
-                            base using embeddings and generates
-                            responses with Gemini.
-                        </p>
-
-                        <p class="project-tools">
-                            Python · SentenceTransformers · Gemini · Streamlit
-                        </p>
-                    </article>
-
+                    <div class="project-shell">
+                        <article class="project-card">
+                            <div class="project-cover cover-paper" aria-hidden="true">
+                                <p class="cover-label">Knowledge &amp; Retrieval</p>
+                                <p class="cover-title">
+                                    Answers from<br><em>your documents.</em>
+                                </p>
+                            </div>
+                            <p class="project-category">
+                                Generative AI · Knowledge Retrieval
+                            </p>
+                            <h3>RAG-Based Knowledge Assistant</h3>
+                            <p class="project-description">
+                                An assistant that retrieves relevant information
+                                from a local text knowledge base using embeddings
+                                and generates responses with Gemini.
+                            </p>
+                            <p class="project-tools">
+                                Python · SentenceTransformers · Gemini · Streamlit
+                            </p>
+                        </article>
+                    </div>
                 </div>
 
                 <details class="additional-projects">
                     <summary>More projects</summary>
-
                     <div class="additional-grid">
                         <article class="additional-item">
                             <h3>AI Sales Forecasting &amp; Revenue Intelligence</h3>
                             <p>
-                                A business intelligence project focused
-                                on sales performance, revenue trends and
-                                forecasting using e-commerce data.
+                                A business intelligence project focused on sales
+                                performance, revenue trends and forecasting
+                                using e-commerce data.
                             </p>
                             <p class="tools">
                                 Power BI · Python · SQL · Forecasting · DAX
@@ -1178,8 +1241,8 @@
                         <article class="additional-item">
                             <h3>AI Content &amp; Business Assistant</h3>
                             <p>
-                                An assistant for generating business and
-                                marketing content using large language models.
+                                An assistant for generating business and marketing
+                                content using large language models.
                             </p>
                             <p class="tools">
                                 Python · Groq · LangChain · Streamlit
@@ -1189,9 +1252,9 @@
                         <article class="additional-item">
                             <h3>Text-to-SQL with Guardrails</h3>
                             <p>
-                                A natural-language database interface
-                                that converts questions into SQL queries
-                                and applies validation to database interactions.
+                                A natural-language database interface that converts
+                                questions into SQL queries and applies validation
+                                to database interactions.
                             </p>
                             <p class="tools">
                                 Python · SQL · LLMs · Query Validation
@@ -1201,8 +1264,8 @@
                         <article class="additional-item">
                             <h3>AI Tool-Using Agent</h3>
                             <p>
-                                A conversational agent that uses tools
-                                for calculations and text analysis.
+                                A conversational agent that uses tools for
+                                calculations and text analysis.
                             </p>
                             <p class="tools">
                                 Python · LangChain · Groq · Streamlit
@@ -1212,20 +1275,17 @@
                         <article class="additional-item">
                             <h3>E-Commerce Business Intelligence Dashboard</h3>
                             <p>
-                                A dashboard for exploring online retail
-                                performance, revenue, product behaviour
-                                and customer trends.
+                                A dashboard for exploring online retail performance,
+                                revenue, product behaviour and customer trends.
                             </p>
-                            <p class="tools">
-                                Power BI · DAX · Data Cleaning
-                            </p>
+                            <p class="tools">Power BI · DAX · Data Cleaning</p>
                         </article>
 
                         <article class="additional-item">
                             <h3>Factory Downtime Analysis Dashboard</h3>
                             <p>
-                                An operational dashboard for examining
-                                downtime across factories and device types.
+                                An operational dashboard for examining downtime
+                                across factories and device types.
                             </p>
                             <p class="tools">
                                 Tableau · Data Analytics · Calculated Fields
@@ -1235,78 +1295,62 @@
                         <article class="additional-item">
                             <h3>HR Database Management &amp; Analytics</h3>
                             <p>
-                                A relational database project covering
-                                employee records, departments, salaries,
-                                joins, aggregation, access control
-                                and transactions.
+                                A relational database project covering employee
+                                records, departments, salaries, joins, aggregation,
+                                access control and transactions.
                             </p>
-                            <p class="tools">
-                                MySQL · SQL · Joins · DCL · TCL
-                            </p>
+                            <p class="tools">MySQL · SQL · Joins · DCL · TCL</p>
                         </article>
                     </div>
                 </details>
             </div>
         </section>
 
-        <!-- SKILLS -->
-
         <section class="skills-section" id="skills">
             <div class="container">
-                <p class="eyebrow">The toolkit</p>
-
-                <h2 class="section-heading">
-                    Tools I work <em>with.</em>
-                </h2>
-
-                <p class="section-description">
-                    Technologies used across my analytics,
-                    dashboard and AI projects.
-                </p>
+                <div class="reveal">
+                    <p class="eyebrow">The toolkit</p>
+                    <h2 class="section-heading">Tools I work <em>with.</em></h2>
+                    <p class="section-description">
+                        Technologies used across my analytics,
+                        dashboard and AI projects.
+                    </p>
+                </div>
 
                 <div class="skills-grid">
-                    <article class="skill-group">
+                    <article class="skill-group reveal">
                         <h3>Programming &amp; Data</h3>
                         <p>
                             Python, SQL, Pandas, NumPy, data cleaning
                             and exploratory data analysis.
                         </p>
                     </article>
-
-                    <article class="skill-group">
+                    <article class="skill-group reveal">
                         <h3>Business Intelligence</h3>
-                        <p>
-                            Power BI, Excel, Power Query, DAX
-                            and Tableau.
-                        </p>
+                        <p>Power BI, Excel, Power Query, DAX and Tableau.</p>
                     </article>
-
-                    <article class="skill-group">
+                    <article class="skill-group reveal">
                         <h3>Machine Learning</h3>
                         <p>
                             Scikit-learn, PyTorch, predictive modeling
                             and model evaluation.
                         </p>
                     </article>
-
-                    <article class="skill-group">
+                    <article class="skill-group reveal">
                         <h3>Generative AI</h3>
                         <p>
                             Gemini, Groq, prompt-based applications
                             and large language model integration.
                         </p>
                     </article>
-
-                    <article class="skill-group">
+                    <article class="skill-group reveal">
                         <h3>Retrieval &amp; RAG</h3>
                         <p>
-                            SentenceTransformers, Weaviate,
-                            embedding-based retrieval and
-                            cross-encoder reranking.
+                            SentenceTransformers, Weaviate, embedding-based
+                            retrieval and cross-encoder reranking.
                         </p>
                     </article>
-
-                    <article class="skill-group">
+                    <article class="skill-group reveal">
                         <h3>Application Development</h3>
                         <p>
                             LangChain, LangGraph, tool calling,
@@ -1317,66 +1361,55 @@
             </div>
         </section>
 
-        <!-- EXPERIENCE -->
-
         <section id="experience">
             <div class="container">
-                <p class="eyebrow">Experience</p>
-
-                <h2 class="section-heading">
-                    Learning through<br>
-                    <em>practical work.</em>
-                </h2>
+                <div class="reveal">
+                    <p class="eyebrow">Experience</p>
+                    <h2 class="section-heading">
+                        Learning through<br><em>practical work.</em>
+                    </h2>
+                </div>
 
                 <div class="experience-list">
-                    <article class="experience-item">
+                    <article class="experience-item reveal">
                         <div>
                             <p class="experience-type">Industry Internship</p>
                             <p class="experience-date">April 2025 – May 2025</p>
                         </div>
-
                         <div>
                             <h3>Premier Match Industry</h3>
                             <p>
-                                Observed departments from raw materials
-                                to final production, collected data and
-                                researched the company's operations
-                                and production workflow.
+                                Observed departments from raw materials to final
+                                production, collected data and researched the
+                                company's operations and production workflow.
                             </p>
                         </div>
                     </article>
 
-                    <article class="experience-item">
+                    <article class="experience-item reveal">
                         <div>
-                            <p class="experience-type">
-                                Virtual Learning Experience
-                            </p>
+                            <p class="experience-type">Virtual Learning Experience</p>
                         </div>
-
                         <div>
                             <h3>Deloitte Data Analytics &amp; Technology</h3>
                             <p>
-                                Explored data analysis, visualization
-                                and technology-related tasks through
-                                a virtual learning experience.
+                                Explored data analysis, visualization and
+                                technology-related tasks through a virtual
+                                learning experience.
                             </p>
                         </div>
                     </article>
 
-                    <article class="experience-item">
+                    <article class="experience-item reveal">
                         <div>
-                            <p class="experience-type">
-                                Virtual Learning Experience
-                            </p>
+                            <p class="experience-type">Virtual Learning Experience</p>
                         </div>
-
                         <div>
                             <h3>Tata Data Visualisation</h3>
                             <p>
-                                Worked on an online retail business
-                                case involving data cleaning, revenue
-                                calculations, business questions
-                                and visualizations.
+                                Worked on an online retail business case involving
+                                data cleaning, revenue calculations, business
+                                questions and visualizations.
                             </p>
                         </div>
                     </article>
@@ -1384,51 +1417,36 @@
             </div>
         </section>
 
-        <!-- CONTACT -->
-
         <section class="contact-section" id="contact">
             <div class="container contact-grid">
-                <div>
+                <div class="reveal">
                     <p class="eyebrow">Get in touch</p>
-
                     <h2 class="contact-heading">
-                        Let's talk<br>
-                        <em>data and AI.</em>
+                        Let's talk<br><em>data and AI.</em>
                     </h2>
-
                     <p class="contact-description">
-                        I'm seeking entry-level opportunities in
-                        data analytics, business intelligence
-                        and Generative AI.
+                        I'm seeking entry-level opportunities in data analytics,
+                        business intelligence and Generative AI.
                     </p>
 
-                    <a
-                        class="email-link"
-                        href="mailto:shivashakthimanivannan@gmail.com"
-                    >
+                    <a class="email-link"
+                       href="mailto:shivashakthimanivannan@gmail.com">
                         shivashakthimanivannan@gmail.com
                     </a>
 
                     <div class="social-links">
-                        <a
-                            href="https://www.linkedin.com/in/shiva-shakthi-manivannan-7620433b9"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
+                        <a href="https://www.linkedin.com/in/shiva-shakthi-manivannan-7620433b9"
+                           target="_blank" rel="noopener noreferrer">
                             LinkedIn
                         </a>
-
-                        <a
-                            href="https://github.com/shivashakthimanivannan-droid"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
+                        <a href="https://github.com/shivashakthimanivannan-droid"
+                           target="_blank" rel="noopener noreferrer">
                             GitHub
                         </a>
                     </div>
                 </div>
 
-                <aside class="contact-details" aria-label="Career interests">
+                <aside class="contact-details reveal" aria-label="Career interests">
                     <div class="contact-detail">
                         <h3>Roles of interest</h3>
                         <p>
@@ -1436,40 +1454,291 @@
                             Generative AI or RAG opportunities.
                         </p>
                     </div>
-
                     <div class="contact-detail">
                         <h3>Preferred locations</h3>
-                        <p>
-                            Coimbatore, Chennai, Tiruchirappalli
-                            and Bengaluru.
-                        </p>
+                        <p>Coimbatore, Chennai, Tiruchirappalli and Bengaluru.</p>
                     </div>
-
                     <div class="contact-detail">
                         <h3>Experience level</h3>
-                        <p>
-                            Fresher with hands-on project experience.
-                        </p>
+                        <p>Fresher with hands-on project experience.</p>
                     </div>
                 </aside>
             </div>
         </section>
     </main>
 
-    <!-- FOOTER -->
-
     <footer>
         <div class="container footer-inner">
-            <p class="copyright">
-                © 2026 Shiva Shakthi Manivannan
-            </p>
+            <p class="copyright">© 2026 Shiva Shakthi Manivannan</p>
 
             <nav class="footer-links" aria-label="Footer navigation">
                 <a href="privacy.html">Privacy Policy</a>
                 <a href="terms.html">Terms and Conditions</a>
                 <a href="#home">Back to top</a>
+                <button
+                    class="motion-toggle"
+                    id="motion-toggle"
+                    type="button"
+                    aria-pressed="false"
+                    hidden
+                >
+                    Pause animations
+                </button>
             </nav>
         </div>
     </footer>
+
+    <script>
+        (() => {
+            "use strict";
+
+            const root = document.documentElement;
+            const header = document.getElementById("site-header");
+            const hero = document.getElementById("home");
+            const heroPanel = document.getElementById("hero-panel");
+            const motionButton = document.getElementById("motion-toggle");
+
+            const reducedMotion = window.matchMedia(
+                "(prefers-reduced-motion: reduce)"
+            );
+
+            const mobileLayout = window.matchMedia("(max-width: 760px)");
+
+            const reveals = Array.from(document.querySelectorAll(".reveal"));
+            const sections = Array.from(document.querySelectorAll("main section"));
+            const navLinks = Array.from(document.querySelectorAll(".nav-links a"));
+
+            const cards = Array.from(
+                document.querySelectorAll(".project-shell")
+            ).map(shell => ({
+                shell,
+                card: shell.querySelector(".project-card")
+            }));
+
+            let manuallyPaused = false;
+            let frameId = 0;
+            let revealObserver = null;
+
+            const clamp = (value, min, max) =>
+                Math.min(max, Math.max(min, value));
+
+            const motionEnabled = () =>
+                !reducedMotion.matches && !manuallyPaused;
+
+            function showElement(element, animate) {
+                element.classList.remove("is-pending");
+
+                if (animate && motionEnabled()) {
+                    element.classList.add("is-entering");
+                }
+
+                if (revealObserver) {
+                    revealObserver.unobserve(element);
+                }
+            }
+
+            function configureReveals() {
+                if (revealObserver) {
+                    revealObserver.disconnect();
+                }
+
+                reveals.forEach(element => {
+                    element.classList.remove("is-pending", "is-entering");
+                });
+
+                if (!motionEnabled() || !("IntersectionObserver" in window)) {
+                    return;
+                }
+
+                revealObserver = new IntersectionObserver(entries => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            showElement(entry.target, true);
+                        }
+                    });
+                }, {
+                    threshold: 0,
+                    rootMargin: "0px 0px -35px 0px"
+                });
+
+                // Only prepare elements below the current viewport.
+                // Above-the-fold content is never hidden on page load.
+                reveals.forEach(element => {
+                    if (element.getBoundingClientRect().top >= window.innerHeight) {
+                        element.classList.add("is-pending");
+                        revealObserver.observe(element);
+                    }
+                });
+            }
+
+            function updateFrame() {
+                frameId = 0;
+
+                const viewportHeight = window.innerHeight;
+                const headerHeight = header.getBoundingClientRect().height;
+
+                // Read layout before changing styles.
+                const sectionPositions = sections.map(section => ({
+                    id: section.id,
+                    top: section.getBoundingClientRect().top
+                }));
+
+                const enabled = motionEnabled();
+
+                const heroRect = enabled
+                    ? hero.getBoundingClientRect()
+                    : null;
+
+                const cardPositions = enabled
+                    ? cards.map(item => ({
+                        ...item,
+                        rect: item.shell.getBoundingClientRect()
+                    }))
+                    : [];
+
+                header.classList.toggle("scrolled", window.scrollY > 12);
+
+                let activeSection = "";
+
+                sectionPositions.forEach(section => {
+                    if (section.top <= headerHeight + 120) {
+                        activeSection = section.id;
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    if (link.getAttribute("href") === "#" + activeSection) {
+                        link.setAttribute("aria-current", "location");
+                    } else {
+                        link.removeAttribute("aria-current");
+                    }
+                });
+
+                if (!enabled) {
+                    heroPanel.style.removeProperty("transform");
+                    cards.forEach(({ card }) => {
+                        card.style.removeProperty("transform");
+                    });
+                    return;
+                }
+
+                // Gentle hero depth, reduced on mobile screens.
+                if (heroRect.bottom > 0 && heroRect.top < viewportHeight) {
+                    const progress = clamp(
+                        -heroRect.top / Math.max(heroRect.height, 1),
+                        0,
+                        1
+                    );
+
+                    const strength = mobileLayout.matches ? 0.4 : 1;
+
+                    heroPanel.style.transform =
+                        `translate3d(0, ${progress * 18 * strength}px, 0) ` +
+                        `rotateX(${progress * 3 * strength}deg) ` +
+                        `rotateY(${-progress * 2 * strength}deg)`;
+                }
+
+                // Cards tilt only while entering the viewport.
+                // They become flat before the visitor reads their text.
+                cardPositions.forEach(({ card, rect }) => {
+                    const entry = clamp(
+                        (rect.top - viewportHeight * 0.48) /
+                        (viewportHeight * 0.52),
+                        0,
+                        1
+                    );
+
+                    const strength = mobileLayout.matches ? 0.45 : 1;
+
+                    if (entry < 0.001) {
+                        card.style.removeProperty("transform");
+                    } else {
+                        card.style.transform =
+                            `translate3d(0, ${entry * 20 * strength}px, 0) ` +
+                            `rotateX(${entry * 7 * strength}deg)`;
+                    }
+                });
+            }
+
+            function scheduleFrame() {
+                if (!frameId && !document.hidden) {
+                    frameId = window.requestAnimationFrame(updateFrame);
+                }
+            }
+
+            function configureMotion() {
+                root.classList.toggle("motion-off", !motionEnabled());
+
+                motionButton.hidden = reducedMotion.matches;
+                motionButton.textContent = manuallyPaused
+                    ? "Enable animations"
+                    : "Pause animations";
+
+                motionButton.setAttribute(
+                    "aria-pressed",
+                    String(manuallyPaused)
+                );
+
+                configureReveals();
+                scheduleFrame();
+            }
+
+            motionButton.addEventListener("click", () => {
+                manuallyPaused = !manuallyPaused;
+                configureMotion();
+            });
+
+            // Keep keyboard-focused content immediately visible and flat.
+            document.addEventListener("focusin", event => {
+                const target = event.target;
+
+                if (!(target instanceof Element)) {
+                    return;
+                }
+
+                const reveal = target.closest(".reveal");
+
+                if (reveal) {
+                    showElement(reveal, false);
+                    reveal.classList.remove("is-entering");
+                }
+
+                const card = target.closest(".project-card");
+
+                if (card) {
+                    card.style.removeProperty("transform");
+                }
+            });
+
+            reveals.forEach(element => {
+                element.addEventListener("animationend", () => {
+                    element.classList.remove("is-entering");
+                });
+            });
+
+            window.addEventListener("scroll", scheduleFrame, { passive: true });
+            window.addEventListener("resize", scheduleFrame, { passive: true });
+            window.addEventListener("load", scheduleFrame);
+            window.addEventListener("pageshow", scheduleFrame);
+
+            document.querySelectorAll("details").forEach(details => {
+                details.addEventListener("toggle", scheduleFrame);
+            });
+
+            document.addEventListener("visibilitychange", () => {
+                if (document.hidden && frameId) {
+                    window.cancelAnimationFrame(frameId);
+                    frameId = 0;
+                } else {
+                    scheduleFrame();
+                }
+            });
+
+            reducedMotion.addEventListener("change", configureMotion);
+            mobileLayout.addEventListener("change", scheduleFrame);
+
+            configureMotion();
+        })();
+    </script>
 </body>
 </html>
